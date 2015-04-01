@@ -1,0 +1,19 @@
+-runfw: org.apache.felix.framework;version='[4,5)'
+-runee: JavaSE-1.7
+-runsystemcapabilities: ${native_capability}
+
+-resolve.effective: active;skip:="osgi.service"
+-runsystempackages: com.sun.mail.util
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.runtime)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.myfaces.core.bundle)',\
+	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.web.pax-web-extender-war)',\
+	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.web.pax-web-jsp)',\
+	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.logging.pax-logging-service)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.eventadmin)',\
+	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.web.pax-web-tomcat-bundle)',\
+	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.web.pax-web-api)',\
+	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.web.pax-web-runtime)',\
+	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.web.pax-web-spi)'

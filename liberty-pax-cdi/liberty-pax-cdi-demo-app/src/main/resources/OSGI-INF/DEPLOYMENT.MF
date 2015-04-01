@@ -1,0 +1,8 @@
+Deployment-ManifestVersion: 1
+Subsystem-SymbolicName: demo.liberty-pax-cdi-demo-app
+Require-Capability: osgi.extender; filter:="(osgi.extender=pax.cdi)",
+    org.ops4j.pax.cdi.extension; filter:="(extension=pax-cdi-extension)"
+Deployed-Content: demo.liberty-pax-cdi-demo-wab;deployed-version="0.0.1.SNAPSHOT"
+Import-Package: javax.inject;version="1.0"
+
+

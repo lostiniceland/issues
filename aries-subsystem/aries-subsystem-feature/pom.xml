@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>issues</groupId>
+		<artifactId>aries-subsystem</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>aries-subsystem-feature</artifactId>
+	<packaging>bundle</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.5.3</version>
+				<extensions>true</extensions>
+				<configuration>
+					<!--<manifestLocation>${basedir}/src/main/resources/META-INF</manifestLocation>-->
+					<niceManifest>true</niceManifest>
+					<instructions>
+						<Private-Package>aries.subsystem.feature</Private-Package>
+						<Export-Package>aries.subsystem.feature.api</Export-Package>
+						<_noee>true</_noee>
+						<_dsannotations>*</_dsannotations>
+						<Provide-Capability>myCapability;attribute=someValue;version:Version=0.0.1</Provide-Capability>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

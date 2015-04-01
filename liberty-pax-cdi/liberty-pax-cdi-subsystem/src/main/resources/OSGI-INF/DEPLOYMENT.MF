@@ -1,0 +1,29 @@
+Deployment-ManifestVersion: 1
+Subsystem-SymbolicName: demo.liberty-pax-cdi-subsystem
+Provide-Capability: osgi.extender; osgi.extender=pax.cdi,
+    org.ops4j.pax.cdi.extension; extension=pax-cdi-extension
+Deployed-Content: org.apache.logging.log4j.api;deployed-version="2.2.0",
+  org.ops4j.pax.logging.pax-logging-service;deployed-version="1.8.2",
+  org.ops4j.pax.logging.pax-logging-api;deployed-version="1.8.2",
+  com.google.guava;deployed-version="18.0.0",
+  org.apache.geronimo.specs.geronimo-atinject_1.0_spec;deployed-version="1.0",
+  javax.enterprise.cdi-api;deployed-version="1.2.0",
+  javax.interceptor-api;deployed-version="1.2",
+  org.apache.xbean.bundleutils;deployed-version="4.1.0",
+  org.apache.xbean.finder;deployed-version="4.1.0",
+  org.objectweb.asm.all;deployed-version="5.0.3",
+  org.apache.felix.eventadmin;deployed-version="1.4.2",
+  org.apache.felix.configadmin;deployed-version="1.8.2",
+  org.apache.felix.http.api;deployed-version="2.3.2",
+  org.ops4j.base.lang;deployed-version="1.5.0",
+  org.ops4j.pax.cdi.weld;deployed-version="0.11.0",
+  org.jboss.weld.osgi-bundle;deployed-version="2.2.9.Final",
+  org.jboss.logging.jboss-logging;deployed-version="3.2.1.Final",
+  org.ops4j.pax.cdi.api;deployed-version="0.11.0",
+  org.ops4j.pax.cdi.spi;deployed-version="0.11.0",
+  org.ops4j.pax.cdi.extender;deployed-version="0.11.0",
+  org.ops4j.pax.cdi.extension;deployed-version="0.11.0",
+  org.ops4j.pax.swissbox.lifecycle;deployed-version="1.8.0",
+  org.ops4j.pax.swissbox.tracker;deployed-version="1.8.0",
+  org.ops4j.pax.swissbox.core;deployed-version="1.8.0"
+

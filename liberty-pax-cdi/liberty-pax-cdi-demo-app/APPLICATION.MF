@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Application-Name: demo.liberty-pax-cdi-demo-app
+Application-Version: 1.0.0.201503271436
+Application-Content: demo.liberty-pax-cdi-demo-wab;version="[0.0.1,0.0.1]"
+Application-ManifestVersion: 1.0
+Application-SymbolicName: demo.liberty-pax-cdi-demo-app
+
+

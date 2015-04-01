@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>liberty-pax-cdi</artifactId>
+        <groupId>demo</groupId>
+        <version>0.0.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <artifactId>liberty-pax-cdi-demo-app</artifactId>
+    <packaging>eba</packaging>
+
+    <description>Demo-Application for Pax-CDI on Liberty</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>liberty-pax-cdi-demo-wab</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>liberty-pax-cdi-subsystem</artifactId>
+            <version>${project.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../liberty-pax-cdi-subsystem/target/liberty-pax-cdi-subsystem-${project.version}.esa</systemPath>
+        </dependency>
+        -->
+        <!--
+        <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-spi</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-api</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-extender-war</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-runtime</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+        -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--
+            <plugin>
+                <groupId>org.apache.aries</groupId>
+                <artifactId>esa-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <generateManifest>true</generateManifest>
+                    <esaSourceDirectory>${basedir}/src/main/resources</esaSourceDirectory>
+                    <instructions>
+                        <Preferred-Provider>liberty-pax-cdi-subsystem;type=osgi.subsystem.feature</Preferred-Provider>
+
+                        <Require-Capability>
+                            osgi.extender; filter:="(osgi.extender=pax.cdi)",
+                            org.ops4j.pax.cdi.extension; filter:="(extension=pax-cdi-extension)"
+                        </Require-Capability>
+                        <Subsystem-Type>osgi.subsystem.application;provision-policy:=acceptDependencies</Subsystem-Type>
+                        <Import-Package>javax.inject;version="1.0"</Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+            -->
+            <plugin>
+                <groupId>org.apache.aries</groupId>
+                <artifactId>eba-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <!--<generateManifest>true</generateManifest>-->
+                    <ebaSourceDirectory>${basedir}/src/main/resources</ebaSourceDirectory>
+                    <applicationManifestFile>${basedir}\APPLICATION.MF</applicationManifestFile>
+                </configuration>
+            </plugin>
+            <!--
+            <plugin>
+                <groupId>com.ibm.websphere.wlp.maven.plugins</groupId>
+                <artifactId>liberty-maven-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <appArchive>${project.build.directory}/${project.build.finalName}.${packaging}</appArchive>
+                    <serverHome>C:/Development/servers/liberty-8.5.5.5</serverHome>
+                </configuration>
+            </plugin>
+            -->
+        </plugins>
+    </build>
+</project>
