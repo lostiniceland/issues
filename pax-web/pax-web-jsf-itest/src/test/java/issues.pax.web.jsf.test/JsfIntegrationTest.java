@@ -45,6 +45,7 @@ public class JsfIntegrationTest {
         return options(
                 workingDirectory("target/paxexam"),
                 cleanCaches(true),
+                bundle("reference:file:/home/marc/Programmieren/git/issues/pax-web/pax-web-jsf/target/pax-web-jsf-0.0.1-SNAPSHOT.jar"),
                 // Framework
                // mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").version("1.4.2"),
                 mavenBundle("org.apache.felix", "org.apache.felix.configadmin").version("1.8.2"),
@@ -61,20 +62,15 @@ public class JsfIntegrationTest {
                 mavenBundle("org.ops4j.pax.swissbox", "pax-swissbox-lifecycle").version("1.8.0"),
                 mavenBundle("org.ops4j.pax.swissbox", "pax-swissbox-extender").version("1.8.0"),
                 mavenBundle("org.ops4j.pax.swissbox", "pax-swissbox-core").version("1.8.0"),
-
                 mavenBundle("org.ops4j.pax.exam", "pax-exam").version("4.4.0"),
                 mavenBundle("org.ops4j.pax.exam", "pax-exam-extender-service").version("4.4.0"),
                 mavenBundle("org.ops4j.pax.exam", "pax-exam-inject").version("4.4.0"),
                 mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.javax-inject").version("1_2"),
-
-                //mavenBundle("org.ops4j.base.io", "pax-exam-inject").version("4.4.0"),
-
                 // add SLF4J and logback bundles
                 // mavenBundle("org.slf4j", "slf4j-api").versionAsInProject(),
                 //mavenBundle("ch.qos.logback", "logback-core").versionAsInProject().startLevel(START_LEVEL_SYSTEM_BUNDLES ),
                 //mavenBundle("ch.qos.logback", "logback-classic").versionAsInProject().startLevel( START_LEVEL_SYSTEM_BUNDLES ),
                 //mavenBundle().groupId("issues").artifactId("pax-web-jsf").versionAsInProject(),
-                //mavenBundle().groupId("issues").artifactId("pax-web-jsf-itest").versionAsInProject(),
                 mavenBundle().groupId("org.ops4j.pax.logging").artifactId("pax-logging-logback").version("1.8.2"),
                 mavenBundle().groupId("org.ops4j.pax.logging").artifactId("pax-logging-api").version("1.8.2"),
                 mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-war").type("jar").classifier("uber").version("2.4.0"),
@@ -95,7 +91,7 @@ public class JsfIntegrationTest {
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpmime").version("4.3.6")),
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpclient").version("4.3.6")),
                 junitBundles(), //kein hamcrest-all
-                systemProperty("org.ops4j.pax.url.mvn.localRepository").value("C:/Development/temp/maven-local-repository"),
+                systemProperty("org.ops4j.pax.url.mvn.localRepository").value("~/.m2/repository"),
                 systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("DEBUG"),
                 systemProperty("org.osgi.service.http.hostname").value("127.0.0.1"),
                 systemProperty("org.osgi.service.http.port").value("8181"),
@@ -121,10 +117,10 @@ public class JsfIntegrationTest {
     @Test
     public void testInstalledBundle() throws Exception{
 
-        assertThat(Arrays.asList(context.getBundles()), hasItem(new CustomTypeSafeMatcher<Bundle>("pax-web-jsf Bundle") {
+        assertThat(Arrays.asList(context.getBundles()), hasItem(new CustomTypeSafeMatcher<Bundle>("issues.pax-web-jsf Bundle") {
             @Override
             protected boolean matchesSafely(Bundle item) {
-                return "pax-web-jsf".equals(item.getSymbolicName());
+                return "issues.pax-web-jsf".equals(item.getSymbolicName());
             }
         }));
 
