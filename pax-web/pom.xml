@@ -14,6 +14,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.osgi>5.0.0</version.osgi>
+		<version.osgi-testing>1.0.0</version.osgi-testing>
 		<version.bnd>2.4.0</version.bnd>
 		<version.felix>4.4.1</version.felix>
 		<version.felix-scr>1.8.2</version.felix-scr>
@@ -68,8 +69,6 @@
 				<artifactId>org.apache.felix.configadmin</artifactId>
 				<version>${version.felix-configadmin}</version>
 			</dependency>
-			<!-- Pax-Web -->
-
 			<!-- Test -->
 			<dependency>
 				<groupId>org.ops4j.pax.exam</groupId>

@@ -16,6 +16,7 @@ import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.packageadmin.PackageAdmin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
@@ -38,6 +39,9 @@ public class JsfIntegrationTest {
     //HttpTestClient httpTestClient;
 
     @Inject
+    private PackageAdmin admin;
+
+    @Inject
     private BundleContext context;
 
     @Configuration
@@ -45,12 +49,24 @@ public class JsfIntegrationTest {
         return options(
                 workingDirectory("target/paxexam"),
                 cleanCaches(true),
-                bundle("reference:file:/home/marc/Programmieren/git/issues/pax-web/pax-web-jsf/target/pax-web-jsf-0.0.1-SNAPSHOT.jar"),
+                bundle("reference:file:../pax-web-jsf/target/pax-web-jsf-0.0.1-SNAPSHOT.jar"),
                 // Framework
-               // mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").version("1.4.2"),
+                // mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").version("1.4.2"),
                 mavenBundle("org.apache.felix", "org.apache.felix.configadmin").version("1.8.2"),
                 //mavenBundle("org.apache.felix", "org.apache.felix.metatype").version("1.0.10"),
                 //mavenBundle("org.apache.felix", "org.apache.felix.scr").version("1.8.2"),
+                // MyFaces
+                mavenBundle("org.apache.myfaces.core", "myfaces-api").version("2.2.7"),
+                mavenBundle("org.apache.myfaces.core", "myfaces-impl").version("2.2.7"),
+                mavenBundle("javax.annotation", "javax.annotation-api").version("1.2"),
+                mavenBundle("javax.interceptor", "javax.interceptor-api").version("1.2"),
+                mavenBundle("javax.enterprise", "cdi-api").version("1.2"),
+                mavenBundle("javax.validation", "validation-api").version("1.1.0.Final"),
+                mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.javax-inject").version("1_2"),
+                mavenBundle("commons-codec", "commons-codec").version("1.10"),
+                mavenBundle("commons-beanutils", "commons-beanutils").version("1.8.3"),
+                mavenBundle("commons-collections", "commons-collections").version("3.2.1"),
+                mavenBundle("commons-digester", "commons-digester").version("1.8.1"),
                 // Pax-Exam
                 mavenBundle("org.ops4j.base", "ops4j-base-io").version("1.5.0"),
                 mavenBundle("org.ops4j.base", "ops4j-base-lang").version("1.5.0"),
@@ -65,31 +81,27 @@ public class JsfIntegrationTest {
                 mavenBundle("org.ops4j.pax.exam", "pax-exam").version("4.4.0"),
                 mavenBundle("org.ops4j.pax.exam", "pax-exam-extender-service").version("4.4.0"),
                 mavenBundle("org.ops4j.pax.exam", "pax-exam-inject").version("4.4.0"),
-                mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.javax-inject").version("1_2"),
-                // add SLF4J and logback bundles
-                // mavenBundle("org.slf4j", "slf4j-api").versionAsInProject(),
-                //mavenBundle("ch.qos.logback", "logback-core").versionAsInProject().startLevel(START_LEVEL_SYSTEM_BUNDLES ),
-                //mavenBundle("ch.qos.logback", "logback-classic").versionAsInProject().startLevel( START_LEVEL_SYSTEM_BUNDLES ),
-                //mavenBundle().groupId("issues").artifactId("pax-web-jsf").versionAsInProject(),
                 mavenBundle().groupId("org.ops4j.pax.logging").artifactId("pax-logging-logback").version("1.8.2"),
                 mavenBundle().groupId("org.ops4j.pax.logging").artifactId("pax-logging-api").version("1.8.2"),
-                mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-war").type("jar").classifier("uber").version("2.4.0"),
+                // Pax-Web
                 mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-spi").version("4.1.1"),
                 mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-api").version("4.1.1"),
                 mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-extender-war").version("4.1.1"),
-                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-extender-whiteboard").version("4.1.1"),
                 mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jsp").version("4.1.1"),
                 mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jetty-bundle").version("4.1.1"),
                 mavenBundle().groupId("org.eclipse.jdt.core.compiler").artifactId("ecj").version("4.4"),
+                // Others
                 mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-aether").version("2.4.0").type("jar"),
-                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-reflect").version("4.1"),
-                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder").version("4.1"),
-                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-bundleutils").version("4.1"),
-                mavenBundle().groupId("org.ow2.asm").artifactId("asm-all").version("5.0.3"),
-                mavenBundle("commons-codec", "commons-codec").version("1.10"),
+                mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-war").type("jar").classifier("uber").version("2.4.0"),
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpcore").version("4.3.3")),
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpmime").version("4.3.6")),
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpclient").version("4.3.6")),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-reflect").version("4.1"),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder").version("4.1"),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder-shaded").version("4.1"),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-bundleutils").version("4.1"),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-asm5-shaded").version("4.1"),
+                mavenBundle().groupId("org.ow2.asm").artifactId("asm-all").version("5.0.3"),
                 junitBundles(), //kein hamcrest-all
                 systemProperty("org.ops4j.pax.url.mvn.localRepository").value("~/.m2/repository"),
                 systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("DEBUG"),
@@ -116,14 +128,12 @@ public class JsfIntegrationTest {
 
     @Test
     public void testInstalledBundle() throws Exception{
-
-        assertThat(Arrays.asList(context.getBundles()), hasItem(new CustomTypeSafeMatcher<Bundle>("issues.pax-web-jsf Bundle") {
+        assertThat(Arrays.asList(context.getBundles()), hasItem(new CustomTypeSafeMatcher<Bundle>("issues.pax-web-jsf Bundle (active)") {
             @Override
             protected boolean matchesSafely(Bundle item) {
-                return "issues.pax-web-jsf".equals(item.getSymbolicName());
+                return "issues.pax-web-jsf".equals(item.getSymbolicName()) && item.getState() == Bundle.ACTIVE;
             }
         }));
-
     }
 
     @Test

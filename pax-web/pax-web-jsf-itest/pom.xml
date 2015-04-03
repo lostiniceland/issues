@@ -47,7 +47,6 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- Pax-Exam -->
-
 		<dependency>
 			<groupId>org.ops4j.pax.exam</groupId>
 			<artifactId>pax-exam-container-native</artifactId>
