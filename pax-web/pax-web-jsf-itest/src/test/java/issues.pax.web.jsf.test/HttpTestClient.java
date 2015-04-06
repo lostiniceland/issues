@@ -46,7 +46,6 @@ import java.util.Map.Entry;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-
 public class HttpTestClient {
 
     private static final Logger LOG = LoggerFactory

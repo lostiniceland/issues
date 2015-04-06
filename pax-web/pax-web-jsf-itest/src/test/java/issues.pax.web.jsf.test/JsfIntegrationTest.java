@@ -6,6 +6,7 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -36,7 +37,7 @@ public class JsfIntegrationTest {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     //@Inject
-    //HttpTestClient httpTestClient;
+    HttpTestClient httpTestClient;
 
     @Inject
     private BundleContext context;
@@ -119,6 +120,11 @@ public class JsfIntegrationTest {
         );
     }
 
+    @Before
+    public void setUpITestBase() throws Exception {
+        httpTestClient = new HttpTestClient();
+    }
+
     @After
     public void tearDownITestBase() throws Exception {
         //httpTestClient.close();
@@ -137,6 +143,10 @@ public class JsfIntegrationTest {
 
     @Test
     public void testDispatchJsp() throws Exception {
-        //httpTestClient.testWebPath("http://127.0.0.1:8181/wab-jetty-web/index.xhtml", "It works");
+        httpTestClient.testWebPath("http://127.0.0.1:8181/osgi-jsf/index.xhtml", "It works");
     }
+
+
+
+
 }
