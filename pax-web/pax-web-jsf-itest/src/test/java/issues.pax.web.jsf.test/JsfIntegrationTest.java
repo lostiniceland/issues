@@ -39,9 +39,6 @@ public class JsfIntegrationTest {
     //HttpTestClient httpTestClient;
 
     @Inject
-    private PackageAdmin admin;
-
-    @Inject
     private BundleContext context;
 
     @Configuration
@@ -49,7 +46,7 @@ public class JsfIntegrationTest {
         return options(
                 workingDirectory("target/paxexam"),
                 cleanCaches(true),
-                bundle("reference:file:../pax-web-jsf/target/pax-web-jsf-0.0.1-SNAPSHOT.jar"),
+
                 // Framework
                 // mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").version("1.4.2"),
                 mavenBundle("org.apache.felix", "org.apache.felix.configadmin").version("1.8.2"),
@@ -102,6 +99,8 @@ public class JsfIntegrationTest {
                 mavenBundle().groupId("org.apache.xbean").artifactId("xbean-bundleutils").version("4.1"),
                 mavenBundle().groupId("org.apache.xbean").artifactId("xbean-asm5-shaded").version("4.1"),
                 mavenBundle().groupId("org.ow2.asm").artifactId("asm-all").version("5.0.3"),
+                // Finally, the WAB (SUT)
+                bundle("reference:file:../pax-web-jsf/target/pax-web-jsf-0.0.1-SNAPSHOT.jar"),
                 junitBundles(), //kein hamcrest-all
                 systemProperty("org.ops4j.pax.url.mvn.localRepository").value("~/.m2/repository"),
                 systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("DEBUG"),
@@ -113,10 +112,10 @@ public class JsfIntegrationTest {
                 systemProperty("org.ops4j.pax.web.log.ncsa.directory").value("target/logs"),
                 systemProperty("org.ops4j.pax.web.jsp.scratch.dir").value("target/paxexam/scratch-dir"),
                 systemProperty("ProjectVersion").value("0.0.1-SNAPSHOT"),
-                systemProperty("org.ops4j.pax.url.mvn.certificateCheck").value("false"),
-                frameworkProperty("osgi.console").value("6666"),
-                frameworkProperty("osgi.console.enable.builtin").value("true"),
-                frameworkProperty("felix.bootdelegation.implicit").value("true")
+                //frameworkProperty("osgi.console").value("6666"),
+                //frameworkProperty("osgi.console.enable.builtin").value("true"),
+                //frameworkProperty("felix.bootdelegation.implicit").value("true")
+                systemProperty("org.ops4j.pax.url.mvn.certificateCheck").value("false")
         );
     }
 
