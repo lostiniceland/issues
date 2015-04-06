@@ -7,8 +7,9 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>pax-web-jsp</module>
 		<module>pax-web-jsf</module>
-		<module>pax-web-jsf-itest</module>
+		<module>pax-web-itest</module>
 	</modules>
 
 	<properties>
@@ -70,6 +71,11 @@
 				<version>${version.felix-configadmin}</version>
 			</dependency>
 			<!-- Test -->
+			<dependency>
+				<groupId>org.ops4j.pax.web</groupId>
+				<artifactId>pax-web-spi</artifactId>
+				<version>${version.pax-web}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.exam</groupId>
 				<artifactId>pax-exam</artifactId>
