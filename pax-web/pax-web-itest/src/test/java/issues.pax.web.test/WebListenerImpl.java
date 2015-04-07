@@ -1,4 +1,4 @@
-package issues.pax.web.jsf.test;
+package issues.pax.web.test;
 
 import org.ops4j.pax.web.service.spi.WebEvent;
 import org.ops4j.pax.web.service.spi.WebListener;

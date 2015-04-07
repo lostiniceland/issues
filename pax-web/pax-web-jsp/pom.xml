@@ -22,6 +22,7 @@
 						<_dsannotations>*</_dsannotations>
 						<_wab>src/main/webapp/</_wab>
 						<Web-ContextPath>osgi-jsp</Web-ContextPath>
+						<Webapp-Context>osgi-jsp</Webapp-Context>
 					</instructions>
 				</configuration>
 			</plugin>

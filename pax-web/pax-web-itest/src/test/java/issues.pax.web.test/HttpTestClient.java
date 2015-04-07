@@ -1,4 +1,4 @@
-package issues.pax.web.jsf.test;
+package issues.pax.web.test;
 
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
@@ -62,7 +62,7 @@ public class HttpTestClient {
     private String keyStore;
 
     public HttpTestClient() throws Exception {
-        this("admin", "admin", "src/test/resources/keystore");
+        this("admin", "admin", "src/issues.pax.web.test/resources/keystore");
     }
 
     public HttpTestClient(String user, String password, String keyStore)

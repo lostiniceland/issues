@@ -23,6 +23,7 @@
 						<_dsannotations>*</_dsannotations>
 						<_wab>src/main/webapp/</_wab>
 						<Web-ContextPath>osgi-jsf</Web-ContextPath>
+						<Webapp-Context>osgi-jsf</Webapp-Context>
 						<DynamicImport-Package>org.apache.myfaces.*</DynamicImport-Package>
 					</instructions>
 				</configuration>

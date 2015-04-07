@@ -1,4 +1,4 @@
-package issues.pax.web.jsf.test;
+package issues.pax.web.test;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
