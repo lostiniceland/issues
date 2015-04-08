@@ -125,11 +125,7 @@
 			<classifier>uber</classifier>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.ops4j.pax.url</groupId>
-			<artifactId>pax-url-aether</artifactId>
-			<scope>test</scope>
-		</dependency>
+
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
