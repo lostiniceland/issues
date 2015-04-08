@@ -1,0 +1,18 @@
+bin: target/classes
+src: src/main/java
+target-dir: target
+testbin: target/test-classes
+testsrc: src/main/test
+-outputmask: ${@bsn}-${version;===S;${@version}}.jar
+-sources: true
+-buildpath: \
+	osgi.core;version=5.0,\
+	osgi.cmpn;version=5.0
+-noee: true
+-wab: src/main/webapp
+Web-ContextPath: demo
+-dsannotations: *
+Require-Capability: osgi.extender; filter:="(osgi.extender=pax.cdi)",\
+	org.ops4j.pax.cdi.extension; filter:="(extension=pax-cdi-extension)"
+DynamicImport-Package: *
+Export-Package: test

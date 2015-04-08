@@ -7,13 +7,11 @@ testsrc: src/main/test
 -sources: true
 -buildpath: \
 	osgi.core;version=5.0,\
-	osgi.cmpn;version=5.0,\
-	org.apache.myfaces.core.api
+	osgi.cmpn;version=5.0
 -wab: src/main/webapp
-Web-ContextPath: osgi-jsf
+Web-ContextPath: osgi-jsp
 -dsannotations: *
 DynamicImport-Package: org.apache.myfaces.*
-Private-Package: issues.pax.web.jsf.test.beans
 -noee: true
 -runfw: org.apache.felix.framework;version='[4.4.1,4.4.1]'
 -runee: JavaSE-1.7

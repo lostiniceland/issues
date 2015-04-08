@@ -1,20 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>issues</groupId>
+
+	<parent>
+		<artifactId>issues</artifactId>
+		<groupId>issues</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
 	<artifactId>aries-subsystem</artifactId>
 	<version>0.0.1</version>
 	<packaging>pom</packaging>
+
 	<modules>
 		<module>aries-subsystem-feature</module>
 		<module>aries-subsystem-feature-esa</module>
 		<module>aries-subsystem-application</module>
 		<module>aries-subsystem-application-esa</module>
 	</modules>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 
 	<dependencies>
 		<dependency>

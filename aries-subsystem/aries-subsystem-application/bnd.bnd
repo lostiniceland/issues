@@ -8,9 +8,10 @@ testsrc: src/main/test
 -buildpath: \
 	osgi.core;version=5.0,\
 	osgi.cmpn;version=5.0,\
-	org.apache.myfaces.core.api
 -dsannotations: *
-Private-Package: issues.pax.web.test
 -noee: true
+Bundle-Activator: aries.subsystem.application.ApplicationActivator
+Private-Package: aries.subsystem.application
+Require-Capability: myCapability;filter:="(attribute=someValue)"
 -runfw: org.apache.felix.framework;version='[4.4.1,4.4.1]'
 -runee: JavaSE-1.7
