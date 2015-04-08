@@ -39,10 +39,10 @@ public class JsfIntegrationTest extends PaxWebTestBase{
 
     @Test
     public void testInstalledBundle() throws Exception{
-        assertThat(Arrays.asList(bundleContext.getBundles()), hasItem(new CustomTypeSafeMatcher<Bundle>("issues.pax-web-jsf Bundle (active)") {
+        assertThat(Arrays.asList(bundleContext.getBundles()), hasItem(new CustomTypeSafeMatcher<Bundle>("pax-web-jsf Bundle (active)") {
             @Override
             protected boolean matchesSafely(Bundle item) {
-                return "issues.pax-web-jsf".equals(item.getSymbolicName()) && item.getState() == Bundle.ACTIVE;
+                return "pax-web-jsf".equals(item.getSymbolicName()) && item.getState() == Bundle.ACTIVE;
             }
         }));
         logger.warn("testInstalledBundle finished");

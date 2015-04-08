@@ -6,7 +6,7 @@
 		<artifactId>pax-web-issues</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>pax-web-jsf-itest</artifactId>
+	<artifactId>pax-web-itest</artifactId>
 
 	<dependencies>
 		<dependency>
