@@ -82,7 +82,11 @@ public class PaxWebTestBase {
         return options(
                 workingDirectory("target/paxexam"),
                 cleanCaches(true),
-                repository("https://uenexus1.nbg.sdv.spb.de/nexus/content/groups/repo/").id("central"),
+                // Home
+                //systemProperty("org.ops4j.pax.url.mvn.localRepository").value("~/.m2/repository"),
+                // Work
+                //systemProperty("org.ops4j.pax.url.mvn.localRepository").value("C:/Development/temp/maven-local-repository"),
+                //repository("https://uenexus1.nbg.sdv.spb.de/nexus/content/groups/repo/").id("central"),
 
                 // Framework
                 mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
@@ -134,17 +138,15 @@ public class PaxWebTestBase {
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpcore").versionAsInProject()),
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpmime").versionAsInProject()),
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpclient").versionAsInProject()),
-//                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-reflect").versionAsInProject(),
-//                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder").versionAsInProject(),
-//                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder-shaded").versionAsInProject(),
-//                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-bundleutils").versionAsInProject(),
-//                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-asm5-shaded").versionAsInProject(),
-//                mavenBundle().groupId("org.ow2.asm").artifactId("asm-all").version("5.0.3"),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-reflect").versionAsInProject(),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder").versionAsInProject(),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder-shaded").versionAsInProject(),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-bundleutils").versionAsInProject(),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-asm5-shaded").versionAsInProject(),
+                mavenBundle().groupId("org.ow2.asm").artifactId("asm-all").version("5.0.3"),
                 junitBundles(), //kein hamcrest-all
-                //systemProperty("org.ops4j.pax.url.mvn.localRepository").value("~/.m2/repository"),
-                systemProperty("org.ops4j.pax.url.mvn.localRepository").value("C:/Development/temp/maven-local-repository"),
                 systemProperty("org.osgi.service.http.hostname").value("127.0.0.1"),
-                systemProperty("org.ops4j.pax.web.listening.addresses").value("localhost,127.0.0.1"),
+                systemProperty("org.ops4j.pax.web.listening.addresses").value("127.0.0.1"),
                 systemProperty("org.osgi.service.http.port").value("8181"),
                 systemProperty("java.protocol.handler.pkgs").value("org.ops4j.pax.url"),
                 systemProperty("org.ops4j.pax.url.war.importPaxLoggingPackages").value("true"),
@@ -152,7 +154,7 @@ public class PaxWebTestBase {
                 systemProperty("org.ops4j.pax.web.log.ncsa.directory").value("target/logs"),
                 systemProperty("org.ops4j.pax.web.jsp.scratch.dir").value("target/paxexam/scratch-dir"),
                 systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("DEBUG"),
-                systemProperty("ProjectVersion").value("0.0.1-SNAPSHOT"),
+                //systemProperty("ProjectVersion").value("0.0.1-SNAPSHOT"),
                 frameworkProperty("osgi.console").value("6666"),
                 frameworkProperty("osgi.console.enable.builtin").value("true"),
                 frameworkProperty("felix.bootdelegation.implicit").value("true"),
