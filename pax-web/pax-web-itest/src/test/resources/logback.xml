@@ -9,22 +9,10 @@
         </encoder>
     </appender>
 
-    <logger name="issues.pax.web" level="INFO"/>
-    <logger name="org.ops4j.pax.logging" level="INFO"/>
-    <logger name="org.ops4j.pax.web" level="INFO"/>
+    <logger name="org.ops4j.pax.exam" level="INFO"/>
 
-    <!-- log to file issues.pax.web.test.log -->
-    <!--
-    <appender name="TEST_LOG" class="ch.qos.logback.core.FileAppender">
-        <file>issues.pax.web.test.log</file>
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-    </appender>
-    -->
     <root level="WARN">
         <appender-ref ref="STDOUT"/>
-        <!--<appender-ref ref="TEST_LOG"/>-->
     </root>
 
 </configuration>

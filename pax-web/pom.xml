@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<parent>
 		<artifactId>issues</artifactId>
 		<groupId>issues</groupId>
@@ -91,6 +90,22 @@
 				<version>${version.felix-configadmin}</version>
 			</dependency>
 			<!-- Test -->
+			<!-- Pax-Logging -->
+			<dependency>
+				<groupId>org.ops4j.pax.logging</groupId>
+				<artifactId>pax-logging-api</artifactId>
+				<version>${version.pax-logging}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.ops4j.pax.logging</groupId>
+				<artifactId>pax-logging-service</artifactId>
+				<version>${version.pax-logging}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.ops4j.pax.logging</groupId>
+				<artifactId>pax-logging-logback</artifactId>
+				<version>${version.pax-logging}</version>
+			</dependency>
 			<!-- Pax-Web -->
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
@@ -197,6 +212,11 @@
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.exam</groupId>
+				<artifactId>pax-exam-extender-service</artifactId>
+				<version>${version.pax-exam}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.ops4j.pax.exam</groupId>
 				<artifactId>pax-exam-container-forked</artifactId>
 				<version>${version.pax-exam}</version>
 			</dependency>
@@ -220,6 +240,12 @@
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bndlib</artifactId>
 				<version>${version.bnd}</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>org.osgi.core</artifactId>
+						<groupId>org.osgi</groupId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.url</groupId>
