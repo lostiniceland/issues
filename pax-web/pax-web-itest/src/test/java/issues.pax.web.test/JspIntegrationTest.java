@@ -37,7 +37,7 @@ public class JspIntegrationTest extends PaxWebTestBase {
         String bundlePath = "file:../pax-web-jsp/target/pax-web-jsp-0.0.1-SNAPSHOT.jar";
         installWarBundle = installAndStartBundle(bundlePath);
 
-        //waitForServer("http://127.0.0.1:8181/");
+        waitForServer("http://127.0.0.1:8181/");
         //waitForWebListener();
     }
 

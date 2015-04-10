@@ -5,6 +5,8 @@ import org.hamcrest.CustomTypeSafeMatcher;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.ops4j.pax.exam.Configuration;
+import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
@@ -21,6 +23,10 @@ import static org.junit.matchers.JUnitMatchers.*;
 @ExamReactorStrategy(PerClass.class)
 public class JsfIntegrationTest extends PaxWebTestBase{
 
+    @Configuration
+    public Option[] config() {
+        return configureBase();
+    }
 
     @Before
     public void setUp() throws Exception {
@@ -28,11 +34,9 @@ public class JsfIntegrationTest extends PaxWebTestBase{
         initWebListener();
 
         String bundlePath = "file:../pax-web-jsf/target/pax-web-jsf-0.0.1-SNAPSHOT.jar";
-        System.out.println("installing");
         installWarBundle = installAndStartBundle(bundlePath);
-        System.out.println("installed");
 
-        //waitForServer("http://127.0.0.1:8181/");
+        waitForServer("http://127.0.0.1:8181/");
         //waitForWebListener();
     }
 
