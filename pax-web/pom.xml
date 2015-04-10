@@ -20,24 +20,17 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.osgi>5.0.0</version.osgi>
-		<version.osgi-testing>1.0.0</version.osgi-testing>
+		<version.myfaces>2.2.7</version.myfaces>
 		<version.bnd>2.4.0</version.bnd>
 		<version.felix>4.4.1</version.felix>
-		<version.felix-scr>1.8.2</version.felix-scr>
-		<version.felix-metatype>1.0.10</version.felix-metatype>
-		<version.felix-configadmin>1.8.2</version.felix-configadmin>
-		<version.felix-eventadmin>1.4.2</version.felix-eventadmin>
 		<version.xbean>4.1</version.xbean>
 		<version.pax-web>4.1.1</version.pax-web>
 		<version.pax-exam>4.4.0</version.pax-exam>
 		<version.pax-url>2.4.0</version.pax-url>
-		<version.pax-swissbox>1.8.0</version.pax-swissbox>
 		<version.pax-logging>1.8.2</version.pax-logging>
-		<version.myfaces>2.2.7</version.myfaces>
 		<version.http-client>4.3.2</version.http-client>
 		<version.http-core>4.3.3</version.http-core>
 		<version.junit>4.12</version.junit>
-		<version.ecj>4.4</version.ecj>
 		<version.slf4j>1.7.12</version.slf4j>
 		<version.logback>0.9.29</version.logback>
 	</properties>
@@ -55,39 +48,14 @@
 				<version>${version.osgi}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.apache.myfaces.core</groupId>
-				<artifactId>myfaces-api</artifactId>
-				<version>${version.myfaces}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.myfaces.core</groupId>
-				<artifactId>myfaces-impl</artifactId>
-				<version>${version.myfaces}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>org.apache.felix.framework</artifactId>
 				<version>${version.felix}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.scr</artifactId>
-				<version>${version.felix-scr}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.metatype</artifactId>
-				<version>${version.felix-metatype}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.eventadmin</artifactId>
-				<version>${version.felix-eventadmin}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.configadmin</artifactId>
-				<version>${version.felix-configadmin}</version>
+				<groupId>org.apache.myfaces.core</groupId>
+				<artifactId>myfaces-api</artifactId>
+				<version>${version.myfaces}</version>
 			</dependency>
 			<!-- Test -->
 			<!-- Pax-Logging -->
@@ -116,88 +84,6 @@
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-spi</artifactId>
 				<version>${version.pax-web}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.ops4j.pax.web</groupId>
-				<artifactId>pax-web-jsp</artifactId>
-				<version>${version.pax-web}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.jdt.core.compiler</groupId>
-				<artifactId>ecj</artifactId>
-				<version>${version.ecj}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.ops4j.pax.web</groupId>
-				<artifactId>pax-web-extender-war</artifactId>
-				<version>${version.pax-web}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.ops4j.pax.web</groupId>
-				<artifactId>pax-web-extender-whiteboard</artifactId>
-				<version>${version.pax-web}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.ops4j.pax.web</groupId>
-				<artifactId>pax-web-runtime</artifactId>
-				<version>${version.pax-web}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.ops4j.pax.web</groupId>
-				<artifactId>pax-web-jetty-bundle</artifactId>
-				<version>${version.pax-web}</version>
-			</dependency>
-			<!-- XBean -->
-			<dependency>
-				<groupId>org.apache.xbean</groupId>
-				<artifactId>xbean-reflect</artifactId>
-				<version>${version.xbean}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.xbean</groupId>
-				<artifactId>xbean-finder</artifactId>
-				<version>${version.xbean}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.xbean</groupId>
-				<artifactId>xbean-finder-shaded</artifactId>
-				<version>${version.xbean}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.xbean</groupId>
-				<artifactId>xbean-bundleutils</artifactId>
-				<version>${version.xbean}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.xbean</groupId>
-				<artifactId>xbean-asm5-shaded</artifactId>
-				<version>${version.xbean}</version>
-			</dependency>
-			<!-- Swissbox -->
-			<dependency>
-				<groupId>org.ops4j.pax.swissbox</groupId>
-				<artifactId>pax-swissbox-tracker</artifactId>
-				<version>${version.pax-swissbox}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.ops4j.pax.swissbox</groupId>
-				<artifactId>pax-swissbox-extender</artifactId>
-				<version>${version.pax-swissbox}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.ops4j.pax.swissbox</groupId>
-				<artifactId>pax-swissbox-core</artifactId>
-				<version>${version.pax-swissbox}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.ops4j.pax.swissbox</groupId>
-				<artifactId>pax-swissbox-lifecycle</artifactId>
-				<version>${version.pax-swissbox}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.ops4j.pax.swissbox</groupId>
-				<artifactId>pax-swissbox-optional-jcl</artifactId>
-				<version>${version.pax-swissbox}</version>
 			</dependency>
 			<!-- Pax-Exam -->
 			<dependency>
@@ -275,12 +161,6 @@
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpclient</artifactId>
 				<version>${version.http-client}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.httpcomponents</groupId>
-				<artifactId>httpcore-osgi</artifactId>
-				<type>bundle</type>
-				<version>${version.http-core}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.httpcomponents</groupId>
