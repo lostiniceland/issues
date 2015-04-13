@@ -11,8 +11,6 @@ testsrc: src/main/test
 -wab: src/main/webapp
 Web-ContextPath: osgi-jsp
 -dsannotations: *
-DynamicImport-Package: org.apache.myfaces.*
--noee: true
 -runfw: org.apache.felix.framework;version='[4.4.1,4.4.1]'
 -runee: JavaSE-1.7
 -runrequires: \
@@ -35,24 +33,6 @@ Import-Package: \
 	org.apache.taglibs.standard.tag.rt.core;version=1.1.2,\
 	org.apache.taglibs.standard.tag.common.core;version=1.1.2,\
 	org.apache.taglibs.standard.resources;version=1.1.2,\
-	javax.faces,\
-	javax.faces.application,\
- 	javax.faces.bean,\
- 	javax.faces.component,\
-	javax.faces.component.behavior,\
- 	javax.faces.component.html,\
- 	javax.faces.component.visit,\
- 	javax.faces.context,\
- 	javax.faces.convert,\
- 	javax.faces.el,\
- 	javax.faces.event,\
- 	javax.faces.lifecycle,\
- 	javax.faces.model,\
-	javax.faces.render,\
- 	javax.faces.validator,\
- 	javax.faces.view,\
-	javax.faces.view.facelets,\
-	javax.faces.webapp,\
 	javax.servlet.jsp;version='[2.2.0,3.0.0)',\
 	javax.servlet.jsp.jstl.tlv;version=1.2,\
 	javax.servlet.jsp.jstl.fmt;version=1.2,\

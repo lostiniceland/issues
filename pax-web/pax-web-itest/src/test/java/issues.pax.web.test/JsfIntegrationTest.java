@@ -3,6 +3,7 @@ package issues.pax.web.test;
 
 import org.hamcrest.CustomTypeSafeMatcher;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -33,15 +34,13 @@ public class JsfIntegrationTest extends PaxWebTestBase{
         httpTestClient = new HttpTestClient();
         initWebListener();
 
-        String bundlePath = "file:../pax-web-jsf/target/pax-web-jsf-0.0.1-SNAPSHOT.jar";
+        String bundlePath = "reference:file:../pax-web-jsf/target/pax-web-jsf-0.0.1-SNAPSHOT.jar";
         installWarBundle = installAndStartBundle(bundlePath);
 
-        waitForServer("http://127.0.0.1:8181/");
-        //waitForWebListener();
+        waitForWebListener();
     }
 
-
-    @Test
+    @Test()
     public void testInstalledBundle() throws Exception{
         assertThat(Arrays.asList(bundleContext.getBundles()), hasItem(new CustomTypeSafeMatcher<Bundle>("pax-web-jsf Bundle (active)") {
             @Override
@@ -49,13 +48,11 @@ public class JsfIntegrationTest extends PaxWebTestBase{
                 return "pax-web-jsf".equals(item.getSymbolicName()) && item.getState() == Bundle.ACTIVE;
             }
         }));
-        logger.warn("testInstalledBundle finished");
     }
 
     @Test
     public void testDispatchJsp() throws Exception {
         httpTestClient.testWebPath("http://127.0.0.1:8181/osgi-jsf/index.xhtml", "It works");
-        logger.warn("testDispatchJsp finished");
     }
 
 }

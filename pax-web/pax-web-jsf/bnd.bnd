@@ -14,7 +14,6 @@ Web-ContextPath: osgi-jsf
 -dsannotations: *
 DynamicImport-Package: org.apache.myfaces.*
 Private-Package: issues.pax.web.jsf.test.beans
--noee: true
 -runfw: org.apache.felix.framework;version='[4.4.1,4.4.1]'
 -runee: JavaSE-1.7
 -runrequires: \

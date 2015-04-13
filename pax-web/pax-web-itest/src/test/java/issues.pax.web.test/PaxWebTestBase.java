@@ -35,9 +35,10 @@ public class PaxWebTestBase {
         }
         if (installWarBundle != null) {
             String symbolicName = installWarBundle.getSymbolicName();
+            logger.warn("Bundle '{}' will be stopped and uninstalled", symbolicName);
             installWarBundle.stop();
             installWarBundle.uninstall();
-            logger.warn("Bundle '{}' uninstalled", symbolicName);
+            logger.warn("Bundle '{}' successfully uninstalled", symbolicName);
         }
     }
 
@@ -67,6 +68,7 @@ public class PaxWebTestBase {
     protected Bundle installAndStartBundle(String bundlePath)
             throws BundleException, InterruptedException {
         final Bundle bundle = bundleContext.installBundle(bundlePath);
+        logger.warn("Bundle '{}' was installed and will be started now", bundle.getSymbolicName());
         bundle.start();
         new WaitCondition("bundle startup") {
             @Override
@@ -74,7 +76,7 @@ public class PaxWebTestBase {
                 return bundle.getState() == Bundle.ACTIVE;
             }
         }.waitForCondition();
-        logger.warn("Install-Bundle '{}' started", bundle.getSymbolicName());
+        logger.warn("Bundle '{}' successfully started", bundle.getSymbolicName());
         return bundle;
     }
 
@@ -85,8 +87,8 @@ public class PaxWebTestBase {
                 // Home
                 //systemProperty("org.ops4j.pax.url.mvn.localRepository").value("~/.m2/repository"),
                 // Work
-                //systemProperty("org.ops4j.pax.url.mvn.localRepository").value("C:/Development/temp/maven-local-repository"),
-                //repository("https://uenexus1.nbg.sdv.spb.de/nexus/content/groups/repo/").id("central"),
+                systemProperty("org.ops4j.pax.url.mvn.localRepository").value("C:/Development/temp/maven-local-repository"),
+                repository("https://uenexus1.nbg.sdv.spb.de/nexus/content/groups/repo/").id("central"),
 
                 // Framework
                 mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
@@ -144,6 +146,18 @@ public class PaxWebTestBase {
                 mavenBundle().groupId("org.apache.xbean").artifactId("xbean-bundleutils").versionAsInProject(),
                 mavenBundle().groupId("org.apache.xbean").artifactId("xbean-asm5-shaded").versionAsInProject(),
                 mavenBundle().groupId("org.ow2.asm").artifactId("asm-all").version("5.0.3"),
+                // Jetty
+                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jetty").version("4.1.1"),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-util").version("8.1.9.v20130131"),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-io").version("8.1.9.v20130131"),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-http").version("8.1.9.v20130131"),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-continuation").version("8.1.9.v20130131"),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-server").version("8.1.9.v20130131"),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-client").version("8.1.9.v20130131"),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-security").version("8.1.9.v20130131"),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-xml").version("8.1.9.v20130131"),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-servlet").version("8.1.9.v20130131"),
+
                 junitBundles(), //kein hamcrest-all
                 systemProperty("org.osgi.service.http.hostname").value("127.0.0.1"),
                 systemProperty("org.ops4j.pax.web.listening.addresses").value("127.0.0.1"),
@@ -157,7 +171,7 @@ public class PaxWebTestBase {
                 //systemProperty("ProjectVersion").value("0.0.1-SNAPSHOT"),
                 frameworkProperty("osgi.console").value("6666"),
                 frameworkProperty("osgi.console.enable.builtin").value("true"),
-                frameworkProperty("felix.bootdelegation.implicit").value("true"),
+                frameworkProperty("felix.bootdelegation.implicit").value("false"),
 //                frameworkProperty(
 //                        "org.osgi.framework.system.packages.extra")
 //                        .value("org.ops4j.pax.exam;version=4.4.0,org.ops4j.pax.exam.options;version=4.4.0,org.ops4j.pax.exam.util;version=4.4.0,org.w3c.dom.traversal"),
