@@ -14,21 +14,6 @@
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bnd-maven-plugin</artifactId>
 			</plugin>
-			<!--<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.5.3</version>
-				<extensions>true</extensions>
-				<configuration>
-					<niceManifest>true</niceManifest>
-					<instructions>
-						<_dsannotations>*</_dsannotations>
-						<_wab>src/main/webapp/</_wab>
-						<Web-ContextPath>osgi-jsp</Web-ContextPath>
-						<Webapp-Context>osgi-jsp</Webapp-Context>
-					</instructions>
-				</configuration>
-			</plugin>-->
 		</plugins>
 	</build>
 
@@ -53,6 +38,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>

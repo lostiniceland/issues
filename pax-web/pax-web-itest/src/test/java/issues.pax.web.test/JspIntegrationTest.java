@@ -34,11 +34,10 @@ public class JspIntegrationTest extends PaxWebTestBase {
         httpTestClient = new HttpTestClient();
         initWebListener();
 
-        String bundlePath = "file:../pax-web-jsp/target/pax-web-jsp-0.0.1-SNAPSHOT.jar";
+        String bundlePath = "reference:file:../pax-web-jsp/target/pax-web-jsp-0.0.1-SNAPSHOT.jar";
         installWarBundle = installAndStartBundle(bundlePath);
 
-        waitForServer("http://127.0.0.1:8181/");
-        //waitForWebListener();
+        waitForWebListener();
     }
 
 
@@ -50,14 +49,12 @@ public class JspIntegrationTest extends PaxWebTestBase {
                 return "pax-web-jsp".equals(item.getSymbolicName()) && item.getState() == Bundle.ACTIVE;
             }
         }));
-        logger.warn("testInstalledBundle finished");
     }
 
 
     @Test
     public void testDispatchJsp() throws Exception {
         httpTestClient.testWebPath("http://127.0.0.1:8181/osgi-jsp/index.jsp", "It works");
-        logger.warn("testDispatchJsp finished");
     }
 
 }
