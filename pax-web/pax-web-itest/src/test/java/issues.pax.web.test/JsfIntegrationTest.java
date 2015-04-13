@@ -51,7 +51,7 @@ public class JsfIntegrationTest extends PaxWebTestBase{
     }
 
     @Test
-    public void testDispatchJsp() throws Exception {
+    public void testDispatchJsf() throws Exception {
         httpTestClient.testWebPath("http://127.0.0.1:8181/osgi-jsf/index.xhtml", "It works");
     }
 

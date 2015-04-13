@@ -43,6 +43,11 @@
         </dependency>
         <!-- Pax-Exam -->
         <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.ops4j.pax.exam</groupId>
             <artifactId>pax-exam-container-native</artifactId>
         </dependency>
@@ -83,8 +88,6 @@
             <artifactId>pax-url-aether</artifactId>
             <scope>test</scope>
         </dependency>
-
-
         <dependency>
             <groupId>biz.aQute.bnd</groupId>
             <artifactId>bndlib</artifactId>
@@ -99,14 +102,14 @@
             <groupId>org.ops4j.pax.url</groupId>
             <artifactId>pax-url-war</artifactId>
             <classifier>uber</classifier>
-            <scope>provided</scope>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.ops4j.pax.url</groupId>
             <artifactId>pax-url-wrap</artifactId>
             <version>${version.pax-url}</version>
             <classifier>uber</classifier>
-            <scope>provided</scope>
+            <scope>test</scope>
         </dependency>
 
 
@@ -157,19 +160,6 @@
                 <groupId>biz.aQute.bnd</groupId>
                 <artifactId>bnd-maven-plugin</artifactId>
             </plugin>
-            <!--<plugin>
-                <groupId>org.apache.servicemix.tooling</groupId>
-                <artifactId>depends-maven-plugin</artifactId>
-                <version>1.2</version>
-                <executions>
-                    <execution>
-                        <id>generate-depends-file</id>
-                        <goals>
-                            <goal>generate-depends-file</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
         </plugins>
     </build>
 </project>

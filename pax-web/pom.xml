@@ -20,6 +20,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.osgi>5.0.0</version.osgi>
+		<version.inject>1</version.inject>
 		<version.myfaces>2.2.7</version.myfaces>
 		<version.bnd>2.4.0</version.bnd>
 		<version.felix>4.4.1</version.felix>
@@ -58,6 +59,11 @@
 				<version>${version.myfaces}</version>
 			</dependency>
 			<!-- Test -->
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>${version.inject}</version>
+			</dependency>
 			<!-- Pax-Logging -->
 			<dependency>
 				<groupId>org.ops4j.pax.logging</groupId>

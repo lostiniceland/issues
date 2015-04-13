@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 
 import static org.ops4j.pax.exam.CoreOptions.*;
-import static org.ops4j.pax.exam.CoreOptions.systemProperty;
 
 public class PaxWebTestBase {
 
@@ -85,10 +84,10 @@ public class PaxWebTestBase {
                 workingDirectory("target/paxexam"),
                 cleanCaches(true),
                 // Home
-                //systemProperty("org.ops4j.pax.url.mvn.localRepository").value("~/.m2/repository"),
+                //systemProperty("org.ops4j.pax.url.mvn.localRepository").value("/home/marc/.m2/repository"),
                 // Work
-                systemProperty("org.ops4j.pax.url.mvn.localRepository").value("C:/Development/temp/maven-local-repository"),
-                repository("https://uenexus1.nbg.sdv.spb.de/nexus/content/groups/repo/").id("central"),
+                //systemProperty("org.ops4j.pax.url.mvn.localRepository").value("C:/Development/temp/maven-local-repository"),
+                //repository("https://uenexus1.nbg.sdv.spb.de/nexus/content/groups/repo/").id("central"),
 
                 // Framework
                 mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").version("1.4.2"),
@@ -148,17 +147,16 @@ public class PaxWebTestBase {
                 mavenBundle().groupId("org.apache.xbean").artifactId("xbean-asm5-shaded").version("4.1"),
                 mavenBundle().groupId("org.ow2.asm").artifactId("asm-all").version("5.0.3"),
                 // Jetty
-                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jetty").version("4.1.1"),
-                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-util").version("8.1.9.v20130131"),
-                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-io").version("8.1.9.v20130131"),
-                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-http").version("8.1.9.v20130131"),
-                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-continuation").version("8.1.9.v20130131"),
-                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-server").version("8.1.9.v20130131"),
-                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-client").version("8.1.9.v20130131"),
-                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-security").version("8.1.9.v20130131"),
-                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-xml").version("8.1.9.v20130131"),
-                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-servlet").version("8.1.9.v20130131"),
-
+//                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jetty").version("4.1.1"),
+//                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-util").version("8.1.9.v20130131"),
+//                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-io").version("8.1.9.v20130131"),
+//                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-http").version("8.1.9.v20130131"),
+//                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-continuation").version("8.1.9.v20130131"),
+//                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-server").version("8.1.9.v20130131"),
+//                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-client").version("8.1.9.v20130131"),
+//                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-security").version("8.1.9.v20130131"),
+//                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-xml").version("8.1.9.v20130131"),
+//                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-servlet").version("8.1.9.v20130131"),
                 junitBundles(), //kein hamcrest-all
                 systemProperty("org.osgi.service.http.hostname").value("127.0.0.1"),
                 systemProperty("org.ops4j.pax.web.listening.addresses").value("127.0.0.1"),
@@ -168,7 +166,7 @@ public class PaxWebTestBase {
                 systemProperty("org.ops4j.pax.web.log.ncsa.enabled").value("true"),
                 systemProperty("org.ops4j.pax.web.log.ncsa.directory").value("target/logs"),
                 systemProperty("org.ops4j.pax.web.jsp.scratch.dir").value("target/paxexam/scratch-dir"),
-                systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("DEBUG"),
+                systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("WARN"),
                 //systemProperty("ProjectVersion").value("0.0.1-SNAPSHOT"),
                 frameworkProperty("osgi.console").value("6666"),
                 frameworkProperty("osgi.console.enable.builtin").value("true"),
