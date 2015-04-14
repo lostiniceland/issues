@@ -29,6 +29,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.util.EntityUtils;
+import org.hamcrest.CoreMatchers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,7 +45,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.*;
 
 public class HttpTestClient {
 
@@ -169,8 +172,7 @@ public class HttpTestClient {
         String responseBodyAsString = EntityUtils
                 .toString(response.getEntity());
         if (expectedContent != null) {
-            assertTrue("Content: " + responseBodyAsString,
-                    responseBodyAsString.contains(expectedContent));
+            assertThat(responseBodyAsString, containsString(expectedContent));
         }
 
         return responseBodyAsString;

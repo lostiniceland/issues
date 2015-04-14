@@ -42,7 +42,7 @@ public class JspIntegrationTest extends PaxWebTestBase {
 
 
     @Test
-    public void testInstalledBundle() throws Exception{
+    public void testJspBundleActive() throws Exception{
         assertThat(Arrays.asList(bundleContext.getBundles()), hasItem(new CustomTypeSafeMatcher<Bundle>("pax-web-jsf Bundle (active)") {
             @Override
             protected boolean matchesSafely(Bundle item) {
@@ -54,7 +54,7 @@ public class JspIntegrationTest extends PaxWebTestBase {
 
     @Test
     public void testDispatchJsp() throws Exception {
-        httpTestClient.testWebPath("http://127.0.0.1:8181/osgi-jsp/index.jsp", "It works");
+        httpTestClient.testWebPath("http://127.0.0.1:8181/osgi-jsp/index.jsp", "Hello World");
     }
 
 }

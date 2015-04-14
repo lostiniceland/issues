@@ -5,6 +5,7 @@
     <title>Welcome Page</title>
 </head>
 <body>
-  <c:out value="It works!"/>
+    <jsp:useBean id="bean" class="issues.pax.web.jsp.test.beans.SomeBean"/>
+    <c:out value="${bean.hello}"/>
 </body>
 </html>
