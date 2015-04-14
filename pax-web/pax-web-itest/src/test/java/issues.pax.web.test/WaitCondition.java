@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * @author Marc Klinger - mklinger[at]nightlabs[dot]de
  */
 public abstract class WaitCondition {
-    private static final long WAIT_TIMEOUT_MILLIS = 10000;
+    private static final long WAIT_TIMEOUT_MILLIS = 3000;
     private static final Logger LOG = LoggerFactory.getLogger(WaitCondition.class);
     private String description;
 

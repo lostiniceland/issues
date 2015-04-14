@@ -22,6 +22,8 @@
 		<version.osgi>5.0.0</version.osgi>
 		<version.inject>1</version.inject>
 		<version.myfaces>2.2.7</version.myfaces>
+		<version.servlet>3.1.0</version.servlet>
+		<version.el>2.2.5</version.el>
 		<version.bnd>2.4.0</version.bnd>
 		<version.felix>4.4.1</version.felix>
 		<version.xbean>4.1</version.xbean>
@@ -54,8 +56,23 @@
 				<version>${version.felix}</version>
 			</dependency>
 			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${version.servlet}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>javax.el-api</artifactId>
+				<version>${version.el}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.apache.myfaces.core</groupId>
 				<artifactId>myfaces-api</artifactId>
+				<version>${version.myfaces}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.myfaces.core</groupId>
+				<artifactId>myfaces-impl</artifactId>
 				<version>${version.myfaces}</version>
 			</dependency>
 			<!-- Test -->

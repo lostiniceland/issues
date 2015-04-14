@@ -14,23 +14,6 @@
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bnd-maven-plugin</artifactId>
 			</plugin>
-			<!--<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.5.3</version>
-				<extensions>true</extensions>
-				<configuration>
-					<niceManifest>true</niceManifest>
-					<instructions>
-						<Private-Package>issues.pax.web.jsf.beans</Private-Package>
-						<_dsannotations>*</_dsannotations>
-						<_wab>src/main/webapp/</_wab>
-						<Web-ContextPath>osgi-jsf</Web-ContextPath>
-						<Webapp-Context>osgi-jsf</Webapp-Context>
-						<DynamicImport-Package>org.apache.myfaces.*</DynamicImport-Package>
-					</instructions>
-				</configuration>
-			</plugin>-->
 		</plugins>
 	</build>
 
@@ -46,8 +29,23 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-impl</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<!-- Logging -->
