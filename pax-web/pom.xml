@@ -75,6 +75,11 @@
 				<artifactId>myfaces-impl</artifactId>
 				<version>${version.myfaces}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.myfaces.core</groupId>
+				<artifactId>myfaces-impl</artifactId>
+				<version>${version.myfaces}</version>
+			</dependency>
 			<!-- Test -->
 			<dependency>
 				<groupId>javax.inject</groupId>
