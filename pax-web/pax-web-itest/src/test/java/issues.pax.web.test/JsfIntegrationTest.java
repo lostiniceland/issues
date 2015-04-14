@@ -3,7 +3,6 @@ package issues.pax.web.test;
 
 import org.hamcrest.CustomTypeSafeMatcher;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -19,8 +18,6 @@ import java.util.Arrays;
 import static org.junit.Assert.*;
 import static org.junit.matchers.JUnitMatchers.*;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
-import static org.ops4j.pax.exam.CoreOptions.frameworkProperty;
-import static org.hamcrest.core.StringContains.containsString;
 
 
 @RunWith(PaxExam.class)
@@ -38,29 +35,32 @@ public class JsfIntegrationTest extends PaxWebTestBase{
                 mavenBundle("javax.interceptor", "javax.interceptor-api").version("1.2"),
                 mavenBundle("javax.enterprise", "cdi-api").version("1.2"),
                 mavenBundle("javax.validation", "validation-api").version("1.1.0.Final"),
-                mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.javax-inject").version("1_2"));
-
+                mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.javax-inject").version("1_2"),
+                // mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jetty-bundle").version(VERSION_PAX_WEB),
+                // Following lines are necessary because pax-web-jetty-bundle doesnt work with jsf
+                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-api").version(VERSION_PAX_WEB),
+                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-spi").version(VERSION_PAX_WEB),
+                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-runtime").version(VERSION_PAX_WEB),
+                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jetty").version(VERSION_PAX_WEB),
+                // Jetty
+                mavenBundle().groupId("javax.servlet").artifactId("javax.servlet-api").version("3.1.0"),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-util").version(VERSION_JETTY),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-io").version(VERSION_JETTY),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-http").version(VERSION_JETTY),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-continuation").version(VERSION_JETTY),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-server").version(VERSION_JETTY),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-client").version(VERSION_JETTY),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-security").version(VERSION_JETTY),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-xml").version(VERSION_JETTY),
+                mavenBundle().groupId("org.eclipse.jetty").artifactId("jetty-servlet").version(VERSION_JETTY));
     }
 
     @Before
     public void setUp() throws Exception {
-        final Bundle[] bundles = bundleContext.getBundles();
-        for (final Bundle bundle : bundles) {
-            if ("org.apache.myfaces.core.api".equalsIgnoreCase(bundle
-                    .getSymbolicName())
-                    || "org.apache.myfaces.core.impl".equalsIgnoreCase(bundle
-                    .getSymbolicName())) {
-                logger.info("Stopping bundle {}", bundle.getSymbolicName());
-                bundle.stop();
-                logger.info("Starting bundle {}", bundle.getSymbolicName());
-                bundle.start();
-            }
-        }
-
         httpTestClient = new HttpTestClient();
         initWebListener();
 
-        String bundlePath = "reference:file:C:/Development/git/issues/pax-web/pax-web-jsf/target/pax-web-jsf-0.0.1-SNAPSHOT.jar";
+        String bundlePath = "reference:file:../pax-web-jsf/target/pax-web-jsf-0.0.1-SNAPSHOT.jar";
         installWarBundle = installAndStartBundle(bundlePath);
 
         waitForWebListener();
@@ -78,10 +78,7 @@ public class JsfIntegrationTest extends PaxWebTestBase{
 
     @Test
     public void testDispatchJsf() throws Exception {
-        Thread.sleep(1000);
-
-        String response = httpTestClient.testWebPath("http://127.0.0.1:8181/osgi-jsf/index.xhtml", null);
-        assertThat("Testing Expression", response, containsString("Hello World"));
+        httpTestClient.testWebPath("http://127.0.0.1:8181/osgi-jsf/index.xhtml", "Hello World");
     }
 
 }

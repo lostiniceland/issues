@@ -15,6 +15,10 @@ import static org.ops4j.pax.exam.CoreOptions.*;
 
 public class PaxWebTestBase {
 
+    protected static final String VERSION_PAX_WEB = "4.1.1";
+    protected static final String VERSION_JETTY = "9.2.10.v20150310";
+
+
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Inject
@@ -86,8 +90,8 @@ public class PaxWebTestBase {
                 // Home
                 //systemProperty("org.ops4j.pax.url.mvn.localRepository").value("/home/marc/.m2/repository"),
                 // Work
-                systemProperty("org.ops4j.pax.url.mvn.localRepository").value("C:/Development/temp/maven-local-repository"),
-                repository("https://uenexus1.nbg.sdv.spb.de/nexus/content/groups/repo/").id("central"),
+                //systemProperty("org.ops4j.pax.url.mvn.localRepository").value("C:/Development/temp/maven-local-repository"),
+                //repository("https://uenexus1.nbg.sdv.spb.de/nexus/content/groups/repo/").id("central"),
 
                 // Framework
                 mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").version("1.4.2"),
@@ -100,12 +104,9 @@ public class PaxWebTestBase {
                 mavenBundle("commons-beanutils", "commons-beanutils").version("1.8.3"),
                 mavenBundle("commons-collections", "commons-collections").version("3.2.1"),
                 mavenBundle("commons-digester", "commons-digester").version("1.8.1"),
-                // Web
-                mavenBundle("javax.el", "javax.el-api").version("2.2.5"),
                 // Pax-Web
-                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-extender-war").version("4.1.1"),
-                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jsp").version("4.1.1"),
-                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jetty-bundle").version("4.1.1"),
+                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-extender-war").version(VERSION_PAX_WEB),
+                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jsp").version(VERSION_PAX_WEB),
                 mavenBundle().groupId("org.eclipse.jdt.core.compiler").artifactId("ecj").version("4.4.2"),
                 // Others
                 mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-aether").version("2.4.0").type("jar"),
@@ -119,7 +120,7 @@ public class PaxWebTestBase {
                 mavenBundle().groupId("org.apache.xbean").artifactId("xbean-bundleutils").version("4.1"),
                 mavenBundle().groupId("org.apache.xbean").artifactId("xbean-asm5-shaded").version("4.1"),
                 mavenBundle().groupId("org.ow2.asm").artifactId("asm-all").version("5.0.3"),
-                junitBundles(), //kein hamcrest-all
+                junitBundles(),
                 systemProperty("org.osgi.service.http.hostname").value("127.0.0.1"),
                 systemProperty("org.ops4j.pax.web.listening.addresses").value("127.0.0.1"),
                 systemProperty("org.osgi.service.http.port").value("8181"),
@@ -131,7 +132,8 @@ public class PaxWebTestBase {
                 systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("INFO"),
                 frameworkProperty("osgi.console").value("6666"),
                 frameworkProperty("osgi.console.enable.builtin").value("true"),
-                systemProperty("org.ops4j.pax.url.mvn.certificateCheck").value("false")
+                systemProperty("org.ops4j.pax.url.mvn.certificateCheck").value("false"),
+                frameworkProperty("felix.bootdelegation.implicit").value("false")
 
 //                // needed when runnin in exam-default mode (exam.properties)
 //                ,

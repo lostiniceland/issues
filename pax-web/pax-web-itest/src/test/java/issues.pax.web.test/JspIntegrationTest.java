@@ -16,6 +16,8 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.hasItem;
+import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
+import static org.ops4j.pax.exam.OptionUtils.combine;
 
 
 @RunWith(PaxExam.class)
@@ -26,7 +28,10 @@ public class JspIntegrationTest extends PaxWebTestBase {
 
     @Configuration
     public Option[] config() {
-        return configureBase();
+        return combine(configureBase(),
+                // Web
+                mavenBundle("javax.el", "javax.el-api").version("2.2.5"),
+                mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jetty-bundle").version(VERSION_PAX_WEB));
     }
 
     @Before
