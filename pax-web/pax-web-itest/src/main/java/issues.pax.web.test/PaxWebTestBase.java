@@ -40,10 +40,10 @@ public class PaxWebTestBase {
         }
         if (installWarBundle != null) {
             String symbolicName = installWarBundle.getSymbolicName();
-            logger.warn("Bundle '{}' will be stopped and uninstalled", symbolicName);
+            logger.info("Bundle '{}' will be stopped and uninstalled", symbolicName);
             installWarBundle.stop();
             installWarBundle.uninstall();
-            logger.warn("Bundle '{}' successfully uninstalled", symbolicName);
+            logger.info("Bundle '{}' successfully uninstalled", symbolicName);
         }
     }
 
@@ -73,7 +73,7 @@ public class PaxWebTestBase {
     protected Bundle installAndStartBundle(String bundlePath)
             throws BundleException, InterruptedException {
         final Bundle bundle = bundleContext.installBundle(bundlePath);
-        logger.warn("Bundle '{}' was installed and will be started now", bundle.getSymbolicName());
+        logger.info("Bundle '{}' was installed and will be started now", bundle.getSymbolicName());
         bundle.start();
         new WaitCondition("bundle startup") {
             @Override
@@ -81,7 +81,7 @@ public class PaxWebTestBase {
                 return bundle.getState() == Bundle.ACTIVE;
             }
         }.waitForCondition();
-        logger.warn("Bundle '{}' successfully started", bundle.getSymbolicName());
+        logger.info("Bundle '{}' successfully started", bundle.getSymbolicName());
         return bundle;
     }
 
