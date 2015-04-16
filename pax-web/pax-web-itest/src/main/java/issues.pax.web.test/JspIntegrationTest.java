@@ -14,8 +14,8 @@ import org.osgi.framework.Bundle;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertThat;
-import static org.junit.matchers.JUnitMatchers.hasItem;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.OptionUtils.combine;
 
