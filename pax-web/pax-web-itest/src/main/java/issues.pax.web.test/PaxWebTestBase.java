@@ -16,6 +16,8 @@ import static org.ops4j.pax.exam.CoreOptions.*;
 public class PaxWebTestBase {
 
     protected static final String VERSION_PAX_WEB = "4.1.1";
+    protected static final String VERSION_PAX_URL = "2.4.0";
+    protected static final String VERSION_XBEAN = "4.1";
     protected static final String VERSION_JETTY = "9.2.10.v20150310";
 
 
@@ -108,31 +110,31 @@ public class PaxWebTestBase {
                 mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-extender-war").version(VERSION_PAX_WEB),
                 mavenBundle().groupId("org.ops4j.pax.web").artifactId("pax-web-jsp").version(VERSION_PAX_WEB),
                 mavenBundle().groupId("org.eclipse.jdt.core.compiler").artifactId("ecj").version("4.4.2"),
-                // Others
-                mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-aether").version("2.4.0").type("jar"),
-                mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-war").type("jar").classifier("uber").version("2.4.0"),
+                // HttpClient for URL-Tests
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpcore").version("4.3.3")),
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpmime").version("4.4.1")),
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpclient").version("4.3.2")),
-                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-reflect").version("4.1"),
-                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder").version("4.1"),
-                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder-shaded").version("4.1"),
-                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-bundleutils").version("4.1"),
-                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-asm5-shaded").version("4.1"),
+                // Others
+                mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-aether").type("jar").version(VERSION_PAX_URL),
+                mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-war").type("jar").classifier("uber").version(VERSION_PAX_URL),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-reflect").version(VERSION_XBEAN),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder").version(VERSION_XBEAN),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder-shaded").version(VERSION_XBEAN),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-bundleutils").version(VERSION_XBEAN),
+                mavenBundle().groupId("org.apache.xbean").artifactId("xbean-asm5-shaded").version(VERSION_XBEAN),
                 mavenBundle().groupId("org.ow2.asm").artifactId("asm-all").version("5.0.3"),
                 junitBundles(),
                 systemProperty("org.osgi.service.http.hostname").value("127.0.0.1"),
-                systemProperty("org.ops4j.pax.web.listening.addresses").value("127.0.0.1"),
                 systemProperty("org.osgi.service.http.port").value("8181"),
                 systemProperty("java.protocol.handler.pkgs").value("org.ops4j.pax.url"),
                 systemProperty("org.ops4j.pax.url.war.importPaxLoggingPackages").value("true"),
                 systemProperty("org.ops4j.pax.web.log.ncsa.enabled").value("true"),
                 systemProperty("org.ops4j.pax.web.log.ncsa.directory").value("target/logs"),
                 systemProperty("org.ops4j.pax.web.jsp.scratch.dir").value("target/paxexam/scratch-dir"),
+                systemProperty("org.ops4j.pax.url.mvn.certificateCheck").value("false"),
                 systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("INFO"),
                 frameworkProperty("osgi.console").value("6666"),
                 frameworkProperty("osgi.console.enable.builtin").value("true"),
-                systemProperty("org.ops4j.pax.url.mvn.certificateCheck").value("false"),
                 frameworkProperty("felix.bootdelegation.implicit").value("false")
 
 //                // needed when runnin in exam-default mode (exam.properties)
@@ -154,7 +156,7 @@ public class PaxWebTestBase {
 //                mavenBundle("org.ops4j.pax.exam", "pax-exam-inject").version("4.4.0"),
                 // Pax-Logging
 //                mavenBundle().groupId("org.ops4j.pax.logging").artifactId("pax-logging-api").version("1.8.2"),
-//                mavenBundle().groupId("org.ops4j.pax.logging").artifactId("pax-logging-service").version("1.8.2"),
+//                mavenBundle().groupId("org.ops4j.pax.logging").artifactId("pax-logging-logback").version("1.8.2"),
         );
     }
 }
