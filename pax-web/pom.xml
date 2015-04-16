@@ -245,32 +245,7 @@
 				<artifactId>junit</artifactId>
 				<version>${version.junit}</version>
 			</dependency>
-
 		</dependencies>
 	</dependencyManagement>
 	
-	<build>
-		<pluginManagement>
-			<plugins>
-				<!--
-				<plugin>
-					<groupId>org.ops4j.pax.exam</groupId>
-					<artifactId>exam-maven-plugin</artifactId>
-					<version>${version.pax-exam}</version>
-					<configuration>
-						<configClass>org.ops4j.pax.exam.regression.maven.ServerConfiguration</configClass>
-					</configuration>
-					<executions>
-						<execution>
-							<goals>
-								<goal>start-container</goal>
-								<goal>stop-container</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-				-->
-			</plugins>
-		</pluginManagement>
-	</build>
 </project>
