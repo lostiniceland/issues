@@ -28,8 +28,8 @@
 		<version.felix>4.4.1</version.felix>
 		<version.xbean>4.1</version.xbean>
 		<version.pax-web>4.1.1</version.pax-web>
-		<version.pax-exam>4.4.0</version.pax-exam>
-		<version.pax-url>2.4.0</version.pax-url>
+		<version.pax-exam>4.5.0</version.pax-exam>
+		<version.pax-url>2.4.1</version.pax-url>
 		<version.pax-logging>1.8.2</version.pax-logging>
 		<version.http-client>4.3.2</version.http-client>
 		<version.http-core>4.3.3</version.http-core>

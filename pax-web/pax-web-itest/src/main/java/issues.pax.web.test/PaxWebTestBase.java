@@ -16,7 +16,7 @@ import static org.ops4j.pax.exam.CoreOptions.*;
 public class PaxWebTestBase {
 
     protected static final String VERSION_PAX_WEB = "4.1.1";
-    protected static final String VERSION_PAX_URL = "2.4.0";
+    protected static final String VERSION_PAX_URL = "2.4.1";
     protected static final String VERSION_XBEAN = "4.1";
     protected static final String VERSION_JETTY = "9.2.10.v20150310";
 
@@ -115,8 +115,6 @@ public class PaxWebTestBase {
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpmime").version("4.4.1")),
                 wrappedBundle(mavenBundle("org.apache.httpcomponents", "httpclient").version("4.3.2")),
                 // Others
-                mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-aether").type("jar").version(VERSION_PAX_URL),
-                mavenBundle().groupId("org.ops4j.pax.url").artifactId("pax-url-war").type("jar").classifier("uber").version(VERSION_PAX_URL),
                 mavenBundle().groupId("org.apache.xbean").artifactId("xbean-reflect").version(VERSION_XBEAN),
                 mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder").version(VERSION_XBEAN),
                 mavenBundle().groupId("org.apache.xbean").artifactId("xbean-finder-shaded").version(VERSION_XBEAN),
