@@ -219,6 +219,7 @@
                     <!--<esaSourceDirectory>${basedir}/src/main/resources</esaSourceDirectory>-->
                     <startOrder>dependencies</startOrder>
                     <instructions>
+                        <Subsystem-SymbolicName>pax-cdi;visibility:=public</Subsystem-SymbolicName>
                         <Subsystem-Type>osgi.subsystem.feature</Subsystem-Type>
                         <Provide-Capability>osgi.extender; osgi.extender="pax.cdi"; version:Version="0.11.0",
                             org.ops4j.pax.cdi.extension; extension=pax-cdi-extension; version:Version="0.11.0"
