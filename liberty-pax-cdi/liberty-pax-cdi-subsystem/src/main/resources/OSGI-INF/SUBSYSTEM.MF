@@ -1,0 +1,29 @@
+Subsystem-ManifestVersion: 1
+Subsystem-SymbolicName: pax-cdi;visibility:=public
+Subsystem-Version: 0.0.1
+Subsystem-Name: liberty-pax-cdi
+Subsystem-Description: OSGi-Subsystem for PAX-CDI inside Liberty
+Subsystem-Content: com.ibm.wsspi.org.osgi.cmpn.5.0.0; version="[1.0.0.201303311639,1.1)"; location:="dev/spi/spec/",
+ org.apache.logging.log4j.api;version="[2.2.0,2.2.0]",
+ org.ops4j.pax.logging.pax-logging-api;version="[1.8.2,1.8.2]",
+ org.ops4j.pax.logging.pax-logging-service;version="[1.8.2,1.8.2]",
+ com.google.guava;version="[18.0.0,18.0.0]",
+ org.apache.geronimo.specs.geronimo-atinject_1.0_spec;version="[1.0,1.0]",
+ javax.enterprise.cdi-api;version="[1.2.0,1.2.0]",
+ javax.interceptor-api;version="[1.2,1.2]",
+ org.ops4j.base.lang;version="[1.5.0,1.5.0]",
+ org.apache.xbean.bundleutils;version="[4.1.0,4.1.0]",
+ org.apache.xbean.finder;version="[4.1.0,4.1.0]",
+ org.objectweb.asm.all;version="[5.0.3,5.0.3]",
+ org.jboss.weld.osgi-bundle;version="[2.2.9.Final,2.2.9.Final]",
+ org.jboss.logging.jboss-logging;version="[3.2.1.Final,3.2.1.Final]",
+ org.ops4j.pax.cdi.api;version="[0.11.0,0.11.0]",
+ org.ops4j.pax.cdi.spi;version="[0.11.0,0.11.0]",
+ org.ops4j.pax.cdi.extender;version="[0.11.0,0.11.0]",
+ org.ops4j.pax.cdi.extension;version="[0.11.0,0.11.0]",
+ org.ops4j.pax.cdi.weld;version="[0.11.0,0.11.0]",
+ org.ops4j.pax.swissbox.lifecycle;version="[1.8.0,1.8.0]",
+ org.ops4j.pax.swissbox.tracker;version="[1.8.0,1.8.0]",
+ org.ops4j.pax.swissbox.core;version="[1.8.0,1.8.0]"
+Provide-Capability: osgi.extender; osgi.extender="pax.cdi"; version:Version="0.11.0", org.ops4j.pax.cdi.extension; extension=pax-cdi-extension; version:Version="0.11.0"
+Subsystem-Type: osgi.subsystem.feature;provision-policy:=acceptDependencies
