@@ -113,11 +113,6 @@
 
         <!-- WELD -->
         <dependency>
-            <groupId>org.ops4j.pax.cdi</groupId>
-            <artifactId>pax-cdi-weld</artifactId>
-            <version>0.11.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.weld</groupId>
             <artifactId>weld-osgi-bundle</artifactId>
             <version>2.2.9.Final</version>
@@ -147,6 +142,11 @@
         <dependency>
             <groupId>org.ops4j.pax.cdi</groupId>
             <artifactId>pax-cdi-extension</artifactId>
+            <version>0.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.cdi</groupId>
+            <artifactId>pax-cdi-weld</artifactId>
             <version>0.11.0</version>
         </dependency>
         <dependency>
