@@ -27,7 +27,7 @@
 		<version.bnd>2.4.0</version.bnd>
 		<version.felix>4.4.1</version.felix>
 		<version.xbean>4.1</version.xbean>
-		<version.pax-web>4.1.1</version.pax-web>
+		<version.pax-web>4.1.2</version.pax-web>
 		<version.pax-exam>4.5.0</version.pax-exam>
 		<version.pax-url>2.4.1</version.pax-url>
 		<version.pax-logging>1.8.2</version.pax-logging>

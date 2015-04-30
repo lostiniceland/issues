@@ -10,12 +10,14 @@
 
 	<artifactId>liberty-pax-cdi</artifactId>
 	<packaging>pom</packaging>
+	<version>0.0.1</version>
 
     <modules>
         <module>liberty-pax-cdi-subsystem</module>
         <module>liberty-pax-cdi-demo-wab</module>
         <module>liberty-pax-cdi-demo-app</module>
-    </modules>
+		<module>liberty-pax-cdi-demo-app-all-in-one</module>
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
